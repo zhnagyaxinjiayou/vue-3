@@ -13,14 +13,23 @@ export default [
   },
   {
     path:'/login',
-    component:Login
+    component:Login,
+    meta:{
+      isHideFooter:true
+    }
   },
   {
     path:'/register',
-    component:Register
+    component:Register,
+    meta:{
+      isHideFooter:true
+    }
   },
   {
-    path:'/search',
-    component:Search
+    name:'search',
+    path:'/search/:content?', //带':' 的部分是params参数 ，有了:content就必须指定name
+    component:Search,
+    //将路由参数映射成props传递给路由组件对象
+    props:route=>({keyword1:route.params.content,keyword2:route.params.content})
   },
 ]

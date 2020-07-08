@@ -3,7 +3,7 @@
     <Header/>
     <!-- 显示一级路由 -->
     <router-view/>
-    <Footer/>
+    <Footer v-if="!$route.meta.isHideFooter"/>
   </div>
 </template>
 

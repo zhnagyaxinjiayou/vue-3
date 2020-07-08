@@ -26,17 +26,14 @@
     <!--头部第二行 搜索区域-->
     <div class="bottom">
       <h1 class="logoArea">
-        <!-- <a class="logo" title="尚品汇" href="###" target="_blank">
-          <img src="./images/logo.png" alt="">
-        </a> -->
         <router-link to="/">
           <img src="./images/logo.png" alt=""> 
         </router-link>
       </h1>
       <div class="searchArea">
         <form action="###" class="searchForm">
-          <input type="text" id="autocomplete" class="input-error input-xxlarge" />
-          <button class="sui-btn btn-xlarge btn-danger" type="button">搜索</button>
+          <input type="text" id="autocomplete" class="input-error input-xxlarge" v-model="content"/>
+          <button class="sui-btn btn-xlarge btn-danger" type="button" @click="search">搜索</button>
         </form>
       </div>
     </div>
@@ -46,6 +43,38 @@
 <script>
   export default {
     name: 'Header',
+    data(){
+      return {
+        content:""
+      }
+    },
+    methods: {
+      search(){
+        const {content}=this
+        // 编程式路由导航
+        // this.$router.push('/search')
+
+        const location={
+          name:'search',
+        }
+
+      // 携带参数
+      // this.$router.push({
+      //   // 使用params就要指定name
+      //   name:'search',//path 地址
+      //   params:{content},
+      // })
+      if(content){
+        location.params={content}
+      }
+
+      this.$router.push(location)  //重复跳转路由错误
+      // this.$router.push(location,()=>{})
+      },
+
+      
+     
+    },
   }
 </script>
 

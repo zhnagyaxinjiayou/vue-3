@@ -2,6 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 // 引入路由器
 import router from './router'
+import TypeNav from './components/TypeNav'
+
+
+// 全局注册组件(所有的组件都可以用)
+Vue.component('TypeNav',TypeNav)
 
 Vue.config.productionTip = false
 
